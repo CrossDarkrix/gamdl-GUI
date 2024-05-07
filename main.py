@@ -105,13 +105,12 @@ class _gmadlgui(object):
         self.subTitle1.setFont(font2)
         self.subTitle1.setStyleSheet('QLabel{background: rgba(0, 0, 0, 0); color: White;}')
         self.pasteButton = QPushButton(gmadlgui)
-        self.pasteButton.setObjectName(u"pasteButton")
+        self.pasteButton.setObjectName("pasteButton")
         self.pasteButton.setGeometry(QRect(30, 250, 221, 41))
         font3 = QFont()
         font3.setPointSize(18)
         self.pasteButton.setFont(font3)
-        self.pasteButton.setStyleSheet(
-            u"QPushButton{color: White; background: Blue;} QPushButton:checked{background: White; color: Black;}")
+        self.pasteButton.setStyleSheet("QPushButton{color: White; background: Blue;} QPushButton:checked{background: White; color: Black;}")
         self.pasteButton.clicked.connect(self._paste)
         self.URL = QLineEdit(gmadlgui)
         self.URL.setObjectName('URL')
@@ -364,7 +363,6 @@ class _gmadlgui(object):
         if_cancel[0] = '1'
         if not 'Canceled' in self.debug_area.toPlainText():
             self.debug_area.appendPlainText('work Canceled........')
-        # self.debug_area.clear()
 
     def how_setup(self, _):
         webbrowser.open('https://github.com/CrossDarkrix/gamdl-GUI/blob/master/how%20to%20setup.md')
