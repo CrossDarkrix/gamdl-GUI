@@ -20,6 +20,16 @@ if_cancel = ['0']
 root_path = [os.getcwd()]
 complete_process = []
 
+class _QMainWindow(QMainWindow):
+    def __init__(self, parent=None):
+        super(_QMainWindow, self).__init__(parent)
+        self.setStyleSheet('QMenu{background: #2d2d2d;color: Red;} QMenu::item{background: #2d2d2d;color: #ededed;} QMenu::item:selected{background: #af0c00;color: White;}')
+
+
+class _QLineEdit(QLineEdit):
+    def __init__(self, parent=None):
+        super(_QLineEdit, self).__init__(parent)
+        self.setStyleSheet('QMenu{background: #2d2d2d;color: #ededed;} QMenu::item{background: #2d2d2d;color: #ededed;} QMenu::item:selected{background: #af0c00;color: White;}')
 
 def isCheckURL(url):
     try:
@@ -70,6 +80,7 @@ class _gmadlgui(object):
         if not gmadlgui.objectName():
             gmadlgui.setObjectName('gmadlgui')
         gmadlgui.resize(1127, 861)
+        gmadlgui.setStyleSheet('QMenu{background: #2d2d2d;color: #ededed;} QMenu::item{background: #2d2d2d;color: #ededed;} QMenu::item:selected{background: #af0c00;color: #ededed;}')
         font = QFont()
         font.setFamilies(['Arial'])
         font.setPointSize(12)
@@ -112,19 +123,19 @@ class _gmadlgui(object):
         self.pasteButton.setFont(font3)
         self.pasteButton.setStyleSheet("QPushButton{color: White; background: Blue;} QPushButton:checked{background: White; color: Black;}")
         self.pasteButton.clicked.connect(self._paste)
-        self.URL = QLineEdit(gmadlgui)
+        self.URL = _QLineEdit(gmadlgui)
         self.URL.setObjectName('URL')
         self.URL.setGeometry(QRect(30, 180, 511, 51))
-        self.URL.setStyleSheet('QLineEdit{color: White;}')
+        self.URL.setStyleSheet('QLineEdit{color: White;} QMenu{background: #2d2d2d;color: #ededed;} QMenu::item{background: #2d2d2d;color: #ededed;} QMenu::item:selected{background: #af0c00;color: White;}')
         self.subTitle1_2 = QLabel(gmadlgui)
         self.subTitle1_2.setObjectName('subTitle1_2')
         self.subTitle1_2.setGeometry(QRect(200, 320, 161, 31))
         self.subTitle1_2.setFont(font2)
         self.subTitle1_2.setStyleSheet('QLabel{background: rgba(0, 0, 0, 0); color: White;}')
-        self.Paths = QLineEdit(gmadlgui)
+        self.Paths = _QLineEdit(gmadlgui)
         self.Paths.setObjectName('Paths')
         self.Paths.setGeometry(QRect(30, 370, 511, 51))
-        self.Paths.setStyleSheet('QLineEdit{color: White;}')
+        self.Paths.setStyleSheet('QLineEdit{color: White;} QMenu{background: #2d2d2d;color: #ededed;} QMenu::item{background: #2d2d2d;color: #ededed;} QMenu::item:selected{background: #af0c00;color: White;}')
         self.OpenDirect = QPushButton(gmadlgui)
         self.OpenDirect.setObjectName('OpenDirect')
         self.OpenDirect.setGeometry(QRect(30, 440, 501, 41))
@@ -237,7 +248,7 @@ class _gmadlgui(object):
         self.debug_area.setGeometry(QRect(20, 520, 1091, 161))
         self.debug_area.setFont(font2)
         self.debug_area.setReadOnly(True)
-        self.debug_area.setStyleSheet('QPlainTextEdit{color: White;}')
+        self.debug_area.setStyleSheet('QPlainTextEdit{color: White;} QMenu{background: #2d2d2d;color: #ededed;} QMenu::item{background: #2d2d2d;color: #ededed;} QMenu::item:selected{background: #af0c00;color: White;}')
         self.howset = QPushButton(gmadlgui)
         self.howset.setObjectName("howset")
         self.howset.setGeometry(QRect(40, 770, 221, 41))
@@ -499,7 +510,7 @@ class _gmadlgui(object):
 
 def main():
     app = QApplication(sys.argv)
-    window = QMainWindow()
+    window = _QMainWindow()
     ui = _gmadlgui()
     ui.setupUi(window)
     window.setFixedSize(window.size())
