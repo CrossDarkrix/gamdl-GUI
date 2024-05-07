@@ -1,3 +1,4 @@
 gamdl
-customtkinter
-pyperclip
+requests
+PySide6==6.5.3
+selenium
